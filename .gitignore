@@ -1,2 +1,5 @@
 data
 scripts/outfile.mid
+results
+.idea
+.python-version
