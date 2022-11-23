@@ -57,6 +57,7 @@ madmom==0.16.1
 MarkupSafe==2.1.1
 matplotlib==3.6.2
 matplotlib-inline==0.1.6
+midi2audio==0.1.1
 -e git+https://github.com/asantos-6/midi2txt.git@7b2d7a26f046ba4bf802d1d158b67431f07a6010#egg=midi2text
 mido==1.2.10
 mistune==2.0.4
