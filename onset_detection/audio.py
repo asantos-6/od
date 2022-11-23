@@ -4,6 +4,7 @@ import librosa.display
 from madmom.audio import Spectrogram
 import matplotlib.pyplot as plt
 
+
 def read_audio(file_path, print_it=False):
     audio, sr = librosa.load(file_path)
     if print_it:
@@ -27,6 +28,13 @@ def plot_audio(x, sr):
 
 def play_audio(file_path, sr):
     ipd.Audio(file_path, rate=sr)  # load a local WAV file
+
+
+    # Function that calculates the total seconds of an audio file
+def audio_seconds(audio, sr):
+    samples = audio.shape[0]
+    s = samples / sr
+    return s
 
 
 def show_spectrogram(x, sr, y_scale='linear', frame_size=2048):
