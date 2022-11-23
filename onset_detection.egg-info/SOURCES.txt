@@ -1,0 +1,10 @@
+README.md
+setup.py
+onset_detection/__init__.py
+onset_detection/audio.py
+onset_detection/od.py
+onset_detection/utils.py
+onset_detection.egg-info/PKG-INFO
+onset_detection.egg-info/SOURCES.txt
+onset_detection.egg-info/dependency_links.txt
+onset_detection.egg-info/top_level.txt
