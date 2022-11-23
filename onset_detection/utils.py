@@ -2,14 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from onset_detection.od import calculate_onset_times
-from onset_detection.audio import plot_audio
+from onset_detection.audio import plot_audio, audio_seconds
 
 
 def plot_df(audio, sr, df_bins, df, c='r', a=0.5, overlap=False):
-    samples = audio.shape[0]
-    s = samples / sr
+    s = audio_seconds(audio, sr)
     times = np.linspace(0, s, df_bins)
-    onset_times = calculate_onset_times(df, df_bins, s)
+    onset_times = calculate_onset_times(audio, sr, df, df_bins)
     if not overlap:
         plt.figure(figsize=(14, 5))
     if df.dtype == int:

@@ -8,6 +8,7 @@ from midi2txt import bpm2tempo
 from midi2txt.settings import midi_drum_map
 from midi2txt.txt_to_midi import midi_delta_time, back_from_midi_time
 from midi2audio import FluidSynth
+from onset_detection.audio import audio_seconds
 
 
 # High Frequency Content (HFC) OD
@@ -40,7 +41,8 @@ def peak_picking(df, t=0.8):
     return pp
 
 
-def calculate_onset_times(b_df, df_bins, s):
+def calculate_onset_times(audio, sr, b_df, df_bins):
+    s = audio_seconds(audio, sr)
     onset_times = [x / df_bins * s for x in b_df]
     return onset_times
 
@@ -110,3 +112,5 @@ def od2midi(file_path, df, onset_times):
     fs = FluidSynth()
     fs.midi_to_audio(midi_output_file, audio_output_file)
     # print("Saved audio file")
+
+    return audio_output_file
