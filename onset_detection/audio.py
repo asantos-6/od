@@ -5,17 +5,21 @@ from madmom.audio import Spectrogram
 import matplotlib.pyplot as plt
 
 
-def read_audio(file_path, print_it=False):
+def read_audio(file_path, trim_interval=None, print_it=False):
     audio, sr = librosa.load(file_path)
+    if trim_interval is not None:
+        ti = trim_interval[0]
+        tf = trim_interval[1]
+        audio = trim_audio(audio, sr, ti, tf)
     if print_it:
         print(audio.shape)
         print(sr)
     return audio, sr
 
 
-def trim_audio(audio, sr, t_i, t_f):
-    i = t_i * sr
-    f = t_f * sr
+def trim_audio(audio, sr, ti, tf):
+    i = ti * sr
+    f = tf * sr
     t_audio = audio[i:f]
     return t_audio
 
